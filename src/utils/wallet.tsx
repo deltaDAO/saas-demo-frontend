@@ -5,7 +5,7 @@ import { genx } from './chains'
 export const wagmiClient = createConfig(
   getDefaultConfig({
     // Required API Keys
-    alchemyId: process.env.ALCHEMY_ID, // or infuraId
+    infuraId: process.env.INFURA_ID,
     walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID,
 
     // Required
