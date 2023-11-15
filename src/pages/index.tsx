@@ -1,12 +1,17 @@
 import { ReactElement } from 'react'
 import styles from './index.module.css'
+import { ConnectKitButton } from 'connectkit'
+import { useAccount } from 'wagmi'
 
 export default function Home(): ReactElement {
+  const { address, isConnecting, isDisconnected } = useAccount()
+
   return (
     <div>
       <img src="/pontus-x.svg" alt="Pontus-X logo" className={styles.logo} />
       <h1 className={styles.title}>SAAS Verifier</h1>
 
+      <ConnectKitButton />
       <p className={styles.description}>
         Get started by editing <code>pages/index.js</code>
       </p>

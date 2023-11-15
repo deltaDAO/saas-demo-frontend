@@ -6,9 +6,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "connectkit": "^1.5.3",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "viem": "^1.19.1",
+    "wagmi": "^1.4.7"
   },
   "engines": {
     "node": ">=18"
