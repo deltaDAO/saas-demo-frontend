@@ -84,7 +84,7 @@ export default function Home(): ReactElement {
   return (
     <div className={styles.container}>
       <img src="/pontus-x.svg" alt="Pontus-X logo" className={styles.logo} />
-      <h1 className={styles.title}>SAAS Verifier</h1>
+      <h1 className={styles.title}>SaaS Verifier</h1>
       <div className={styles.grid}>
         <Card completed={!!address}>
           <>
@@ -126,6 +126,11 @@ export default function Home(): ReactElement {
                 <Alert
                   state="error"
                   text="There is no active subscription for this account."
+                  action={{
+                    name: 'Go to Pontus-X',
+                    handleAction: () =>
+                      window.open('https://pontus-x.eu', '_blank'),
+                  }}
                 />
               ) : (
                 <Alert
