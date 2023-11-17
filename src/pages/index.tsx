@@ -128,11 +128,7 @@ export default function Home(): ReactElement {
                   text="There is no active subscription for this account."
                   action={{
                     name: 'Go to Pontus-X',
-                    handleAction: () =>
-                      window.open(
-                        `https://pontus-x.eu/asset/${process.env.NEXT_PUBLIC_ASSET_DID}`,
-                        '_blank'
-                      ),
+                    href: `https://pontus-x.eu/asset/${process.env.NEXT_PUBLIC_ASSET_DID}`,
                   }}
                 />
               ) : (

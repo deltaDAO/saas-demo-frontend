@@ -14,7 +14,8 @@ export interface AlertProps {
     name: string
     style?: 'text' | 'primary' | 'ghost'
     disabled?: boolean
-    handleAction: (e: FormEvent<HTMLButtonElement>) => void
+    handleAction?: (e: FormEvent<HTMLButtonElement>) => void
+    href?: string
   }
   onDismiss?: () => void
   className?: string
@@ -44,6 +45,7 @@ export default function Alert({
           size="small"
           style={action.style || 'primary'}
           onClick={action.handleAction}
+          href={action.href}
           disabled={action.disabled}
         >
           {action.name}
