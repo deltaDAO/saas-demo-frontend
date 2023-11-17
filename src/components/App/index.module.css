@@ -12,6 +12,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw;
 }
 
 .footer {
@@ -34,5 +35,5 @@
 
 .logo {
   margin-left: 0.5rem;
-  height: 5rem;
+  height: 3.5rem;
 }

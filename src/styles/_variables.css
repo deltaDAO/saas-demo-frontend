@@ -1,0 +1,97 @@
+@import '../../public/static/fonts/fonts.css';
+
+:root {
+  /* colors */
+  --brand-white: #ffffff;
+  --brand-black: #002c3f;
+  --brand-blue: #004967;
+  --brand-blue-light: #008baa;
+  --brand-cyan: #46daff;
+  --brand-purple: #7300f3;
+  --brand-violet: #b900ff;
+  --brand-gaia-x-blue: #283375;
+
+  --brand-gradient: linear-gradient(
+    to right bottom,
+    var(--brand-blue-light),
+    var(--brand-blue)
+  );
+
+  --brand-grey: #2b2e3b;
+  --brand-grey-light: #4c5167;
+  --brand-grey-lighter: #d0d2dd;
+  --brand-grey-dimmed: #f5f6fb;
+
+  --brand-alert-green: #5fb359;
+  --brand-alert-red: #d80606;
+  --brand-alert-orange: #b35f36;
+  --brand-alert-yellow: #eac146;
+
+  --font-color-text: var(--brand-grey);
+  --font-color-heading: var(--brand-black);
+  --font-color-light: var(--brand-grey-light);
+  --background-body: var(--brand-white);
+  --background-body-transparent: rgba(255, 255, 255, 0.8);
+  --background-content: var(--brand-white);
+  --background-highlight: var(--brand-grey-dimmed);
+  --border-color: var(--brand-grey-lighter);
+  --box-shadow-color: rgba(0, 0, 0, 0.05);
+
+  /* font */
+  --font-family-base: 'Titillium Web', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-family-heading: 'Titillium Web', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-family-monospace: 'Fira Code', 'Fira Mono', Menlo, Monaco, Consolas,
+    'Courier New', monospace;
+
+  --font-size-root: 15px;
+  --font-size-base: 1rem;
+  --font-size-large: 1.2rem;
+  --font-size-small: 0.85rem;
+  --font-size-mini: 0.65rem;
+  --font-size-text: 1rem;
+  --font-size-label: 1rem;
+  --font-size-title: 1.4rem;
+  --font-size-h1: 3rem;
+  --font-size-h2: 2.5rem;
+  --font-size-h3: 1.7rem;
+  --font-size-h4: 1.3rem;
+  --font-size-h5: 1.1rem;
+  --font-weight-base: 500;
+  --font-weight-bold: 600;
+  --line-height: 1.6;
+
+  /* layout */
+  --spacer: 2rem;
+  --border-radius: 0.2rem;
+  --border-size: 1px;
+
+  /* Buttons */
+  --button-border-radius: var(--border-radius);
+  --button-font-color: var(--brand-white);
+  --button-background: var(--font-color-light);
+  --button-hover-font-color: var(--brand-white);
+  --button-hover-background: var(--font-color-light);
+  --button-active-font-color: var(--brand-white);
+  --button-active-background: var(--font-color-light);
+  --button-primary-font-color: var(--brand-white);
+  --button-primary-background: var(--brand-gradient);
+  --button-ghost-font-color: var(--color-primary);
+  --button-ghost-background: var(--brand-white);
+  --button-text-font-color: var(--color-highlight);
+
+  /* Loading spinner */
+  --loader-border-color: var(--brand-blue);
+  --loader-top-border-color: transparent;
+  --loader-border-size: var(--border-size);
+  --loader-message-color: var(--color-secondary);
+
+  /* Box template */
+  --box-template-background: var(--background-content);
+  --box-template-border-radius: var(--border-radius);
+  --box-template-border-size: var(--border-size);
+  --box-template-border-color: var(--border-color);
+  --box-template-box-shadow: 0 6px 17px 0 var(--box-shadow-color);
+  --box-template-hover-box-shadow: 0 10px 25px 0 var(--box-shadow-color);
+}

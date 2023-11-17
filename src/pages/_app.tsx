@@ -4,7 +4,7 @@ import App from '../components/App'
 import '../styles/global.css'
 import { WagmiConfig } from 'wagmi'
 import { ConnectKitProvider } from 'connectkit'
-import { wagmiClient } from '../utils/wallet'
+import { connectKitTheme, wagmiClient } from '../utils/wallet'
 
 export default function MyApp({
   Component,
@@ -12,7 +12,7 @@ export default function MyApp({
 }: AppProps): ReactElement {
   return (
     <WagmiConfig config={wagmiClient}>
-      <ConnectKitProvider>
+      <ConnectKitProvider customTheme={connectKitTheme}>
         <App>
           <Component {...pageProps} />
         </App>{' '}

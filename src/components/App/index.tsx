@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 import styles from './index.module.css'
 import Head from 'next/head'
+import { ToastContainer } from 'react-toastify'
 
 export default function App({
   children,
@@ -29,6 +30,7 @@ export default function App({
           />
         </a>
       </footer>
+      <ToastContainer position="bottom-right" newestOnTop />
     </div>
   )
 }

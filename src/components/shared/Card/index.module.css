@@ -1,0 +1,23 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--box-template-font-color);
+  background: var(--box-template-background);
+  border-radius: var(--box-template-border-radius);
+  border: var(--box-template-border-size) solid var(--box-template-border-color);
+  box-shadow: var(--box-template-box-shadow);
+  padding: var(--spacer);
+  text-align: center;
+}
+
+.completed {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  fill: var(--brand-alert-green);
+}
