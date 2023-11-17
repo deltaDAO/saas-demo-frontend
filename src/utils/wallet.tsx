@@ -9,7 +9,7 @@ export const wagmiClient = createConfig(
     walletConnectProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID,
 
     // Required
-    appName: 'SAAS Verifier',
+    appName: 'Subscription Verifier',
 
     // Optional
     chains: [genx],

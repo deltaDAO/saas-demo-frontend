@@ -84,7 +84,7 @@ export default function Home(): ReactElement {
   return (
     <div className={styles.container}>
       <img src="/pontus-x.svg" alt="Pontus-X logo" className={styles.logo} />
-      <h1 className={styles.title}>SaaS Verifier</h1>
+      <h1 className={styles.title}>Subscription Verifier</h1>
       <div className={styles.grid}>
         <Card completed={!!address}>
           <>
