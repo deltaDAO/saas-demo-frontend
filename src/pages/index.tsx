@@ -114,13 +114,18 @@ export default function Home(): ReactElement {
           <>
             <h4>Subscription State:</h4>
             <div>
-              {subscription?.hasAccess &&
-              subscription?.latestOrder?.expiryTimestamp ? (
+              {subscription?.hasAccess ? (
                 <Alert
                   state="success"
-                  text={`Your subscription will expire in ${formatDistanceToNow(
-                    new Date(subscription.latestOrder.expiryTimestamp * 1000)
-                  )}`}
+                  text={
+                    subscription?.latestOrder?.expiryTimestamp
+                      ? `Your subscription will expire in ${formatDistanceToNow(
+                          new Date(
+                            subscription.latestOrder.expiryTimestamp * 1000
+                          )
+                        )}.`
+                      : 'Your subscription is active and does not have an expiration date.'
+                  }
                 />
               ) : subscription?.hasAccess === false ? (
                 <Alert
