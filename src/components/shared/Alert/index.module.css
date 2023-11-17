@@ -6,8 +6,7 @@
   border-left-width: 0.5rem;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  padding-top: calc(var(--spacer) / 2);
-  padding-bottom: calc(var(--spacer) / 2);
+  padding: calc(var(--spacer) / 2);
   position: relative;
 }
 
