@@ -11,7 +11,7 @@ export default function App({
   return (
     <div className={styles.container}>
       <Head>
-        <title>SAAS Verifier</title>
+        <title>Subscription Verifier</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className={styles.header}></header>
