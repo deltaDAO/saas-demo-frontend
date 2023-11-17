@@ -1,4 +1,4 @@
-import { ReactElement, useState } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 import styles from './index.module.css'
 import { ConnectKitButton } from 'connectkit'
 import { useAccount, useSignMessage } from 'wagmi'
@@ -31,6 +31,10 @@ export default function Home(): ReactElement {
   const { signMessageAsync } = useSignMessage()
   const [subscription, setSubscription] = useState<Subscription>()
   const [isLoading, setIsLoading] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (!address) setSubscription(undefined)
+  }, [address])
 
   const getNonce = async (address: string): Promise<string> => {
     try {

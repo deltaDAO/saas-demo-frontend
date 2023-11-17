@@ -22,7 +22,7 @@ export default function App({
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Built by{' '}
           <img
             src="/deltaDAO_Logo_small_RGB_white.svg"
             alt="Vercel"
