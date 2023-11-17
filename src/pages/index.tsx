@@ -129,7 +129,10 @@ export default function Home(): ReactElement {
                   action={{
                     name: 'Go to Pontus-X',
                     handleAction: () =>
-                      window.open('https://pontus-x.eu', '_blank'),
+                      window.open(
+                        `https://pontus-x.eu/asset/${process.env.NEXT_PUBLIC_ASSET_DID}`,
+                        '_blank'
+                      ),
                   }}
                 />
               ) : (
