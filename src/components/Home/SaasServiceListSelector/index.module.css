@@ -1,0 +1,194 @@
+.input {
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--input-font-color);
+  border: var(--input-border-size) solid var(--input-border-color);
+  box-shadow: none;
+  width: 100%;
+  background: var(--background-content);
+  padding: calc(var(--spacer) / 3);
+  margin: 0;
+  margin-right: calc(var(--spacer) / 3);
+  border-radius: var(--input-border-radius);
+  transition: 0.2s ease-out;
+  height: 43px;
+  min-width: 1.2rem;
+  appearance: none;
+  display: block;
+}
+
+.input:focus {
+  border-color: var(--font-color-text);
+  box-shadow: none;
+  outline: 0;
+}
+
+.input::placeholder {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  color: var(--input-placeholder-font-color);
+  font-weight: var(--font-weight-base);
+  transition: 0.2s ease-out;
+  opacity: 0.7;
+}
+
+.input[readonly],
+.input[disabled] {
+  background-color: var(--background-highlight);
+  color: var(--input-disabled-font-color);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.input[readonly]::-webkit-inner-spin-button,
+.input[disabled]::-webkit-inner-spin-button,
+.input[readonly]::-webkit-outer-spin-button,
+.input[disabled]::-webkit-outer-spin-button {
+  display: none;
+}
+
+.selection {
+  padding: 0;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-highlight);
+  border-radius: var(--border-radius);
+  margin-bottom: calc(var(--spacer) / 2);
+  font-size: var(--font-size-small);
+  min-height: 200px;
+  width: 100%;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.selection [class*='loaderWrap'] {
+  margin: calc(var(--spacer) / 3);
+}
+
+.scroll {
+  border-top: 1px solid var(--border-color);
+  margin-top: calc(var(--spacer) / 4);
+  min-height: fit-content;
+  max-height: 30vh;
+  position: relative;
+  /* smooth overflow scrolling for pre-iOS 13 */
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding: calc(var(--spacer) / 3) calc(var(--spacer) / 2);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.radio {
+  composes: input;
+  position: relative;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  min-height: 0;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -2px;
+}
+
+.radio:focus {
+  box-shadow: 0 0 0 var(--input-selected-background);
+}
+
+.radio::after {
+  content: '';
+  display: block;
+  left: 0;
+  top: 0;
+  position: absolute;
+  opacity: 0;
+  transition: transform 0.3s ease-out, opacity 0.2s;
+}
+
+.radio,
+.radio::after {
+  border-radius: 50%;
+}
+
+.radio::after {
+  width: 8px;
+  height: 8px;
+  top: 4px;
+  left: 4px;
+  background: var(--input-background);
+}
+
+.radio:checked {
+  border-color: var(--input-selected-background);
+  background: var(--input-selected-background);
+}
+
+.radio:checked::after {
+  opacity: 1;
+}
+
+.assetTitle {
+  font-size: var(--font-size-small);
+  margin-top: calc(var(--spacer) / 12);
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.link {
+  display: inline-block;
+  margin-left: calc(var(--spacer) / 8);
+}
+
+.link svg {
+  margin: 0;
+  fill: var(--link-font-color);
+  width: 0.7em;
+  height: 0.7em;
+}
+
+.search {
+  margin: calc(var(--spacer) / 4) calc(var(--spacer) / 2);
+  width: calc(100% - var(--spacer));
+  font-size: var(--font-size-small);
+  height: 34px;
+  padding: calc(var(--spacer) / 4);
+}
+
+.search::placeholder {
+  font-size: var(--font-size-small);
+}
+
+.did {
+  padding: 0;
+  /* hack to make DotDotDot clamp work in Safari*/
+  font-size: 0.63rem;
+  display: block;
+  text-align: left;
+  color: var(--color-secondary);
+  /* makes sure DotDotDot will kick in */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.empty {
+  padding: var(--spacer) calc(var(--spacer) / 2);
+  text-align: center;
+  color: var(--color-secondary);
+}

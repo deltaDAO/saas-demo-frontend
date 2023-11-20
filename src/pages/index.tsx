@@ -1,6 +1,5 @@
-import { ReactElement, useEffect, useState } from 'react'
+import { ReactElement, useCallback, useEffect, useState } from 'react'
 import styles from './index.module.css'
-import { ConnectKitButton } from 'connectkit'
 import { useAccount, useSignMessage } from 'wagmi'
 import axios from 'axios'
 import { formatDistanceToNow } from 'date-fns'
@@ -10,6 +9,10 @@ import Alert from '../components/shared/Alert'
 import Loader from '../components/shared/Loader'
 import dynamic from 'next/dynamic'
 import { toast } from 'react-toastify'
+import { useCancelToken } from '../hooks/useCancelToken'
+import { getSaasAssets } from '../utils/aquarius'
+import { Asset } from '@oceanprotocol/lib'
+import SaasServiceListSelection from '../components/Home/SaasServiceListSelector'
 
 // dynamically import the component without ssr to avoid Hydration error displaying the svg
 const Card = dynamic(() => import('../components/shared/Card'), { ssr: false })
@@ -26,14 +29,38 @@ interface Subscription {
   }
 }
 
+export interface SelectedAsset {
+  did: string
+  name: string
+}
+
 export default function Home(): ReactElement {
   const { address } = useAccount()
   const { signMessageAsync } = useSignMessage()
+  const newCancelToken = useCancelToken()
+
   const [subscription, setSubscription] = useState<Subscription>()
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [saasAssetsList, setSaasAssetsList] = useState<Asset[]>([])
+  const [selectedAsset, setSelectedAsset] = useState<SelectedAsset>()
+
+  const querySaasAssetsList = useCallback(async () => {
+    const list = await getSaasAssets(newCancelToken())
+    setSaasAssetsList(list)
+  }, [getSaasAssets])
 
   useEffect(() => {
-    if (!address) setSubscription(undefined)
+    querySaasAssetsList()
+  }, [querySaasAssetsList])
+
+  useEffect(() => {
+    if (!address) {
+      setSelectedAsset({
+        did: undefined,
+        name: undefined,
+      })
+      setSubscription(undefined)
+    }
   }, [address])
 
   const getNonce = async (address: string): Promise<string> => {
@@ -74,6 +101,10 @@ export default function Home(): ReactElement {
 
       return response.data
     } catch (error) {
+      if ([401, 404].includes(error?.response?.status)) {
+        return error.response.data
+      }
+
       console.log(error)
       toast.error(error.message)
     } finally {
@@ -95,13 +126,18 @@ export default function Home(): ReactElement {
         <Card completed={!!subscription}>
           <>
             <h4>Step2: Verify Subscription State</h4>
+            <SaasServiceListSelection
+              assets={saasAssetsList}
+              setSelectedAsset={setSelectedAsset}
+              disabled={isLoading || !address}
+            />
             <Button
               style="primary"
-              disabled={!address}
+              disabled={!address || isLoading || !selectedAsset}
               onClick={async () => {
                 const subscriptionDetails = await verifySubscription(
                   address,
-                  process.env.NEXT_PUBLIC_ASSET_DID
+                  selectedAsset.did
                 )
                 setSubscription(subscriptionDetails)
               }}
@@ -130,16 +166,16 @@ export default function Home(): ReactElement {
               ) : subscription?.hasAccess === false ? (
                 <Alert
                   state="error"
-                  text="There is no active subscription for this account."
+                  text={`There is no active subscription to "${selectedAsset.name}" for this account.`}
                   action={{
                     name: 'Go to Pontus-X',
-                    href: `https://pontus-x.eu/asset/${process.env.NEXT_PUBLIC_ASSET_DID}`,
+                    href: `https://pontus-x.eu/asset/${selectedAsset.did}`,
                   }}
                 />
               ) : (
                 <Alert
                   state="info"
-                  text={`Connect with MetaMask and click on the "Verify" button to check the subscription state.`}
+                  text={`Connect with MetaMask, select a service and click on the "Verify" button to check the subscription state.`}
                 />
               )}
             </div>

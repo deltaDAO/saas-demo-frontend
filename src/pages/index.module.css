@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   max-width: 40rem;
-  padding: calc(var(--spacer) / 1.5);
+  padding: calc(var(--spacer) * 2) calc(var(--spacer) / 1.5);
 }
 
 .logo {
@@ -16,18 +16,4 @@
 .grid {
   display: grid;
   grid-gap: calc(var(--spacer) / 1.5);
-  margin: calc(var(--spacer) / 1.5) 0;
-}
-
-@media screen and (min-width: 65rem) {
-  .container {
-    max-width: 70rem;
-    padding: var(--spacer);
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    grid-gap: var(--spacer);
-    margin: var(--spacer) 0;
-  }
 }
