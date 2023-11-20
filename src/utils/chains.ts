@@ -1,5 +1,4 @@
 import { Chain } from 'wagmi'
-import * as wagmiChains from 'wagmi/chains'
 
 export const genx = {
   id: 100,
