@@ -54,7 +54,7 @@ export default function Home(): ReactElement {
     if (!address) {
       setSelectedAsset({
         did: undefined,
-        name: undefined,
+        name: undefined
       })
       setSubscription(undefined)
     }
@@ -65,8 +65,6 @@ export default function Home(): ReactElement {
       const response = await axios.get(
         `${process.env.NEXT_PUBLIC_CONTRACTING_PROVIDER_URL}/user/${address}/nonce`
       )
-
-      if (response.status !== 200) throw new Error()
 
       return response.data
     } catch (error) {
@@ -92,7 +90,7 @@ export default function Home(): ReactElement {
         {
           address,
           signature,
-          did,
+          did
         }
       )
 
@@ -161,7 +159,7 @@ export default function Home(): ReactElement {
                 text={`There is no active subscription to "${selectedAsset.name}" for this account.`}
                 action={{
                   name: 'Go to Pontus-X',
-                  href: `${process.env.NEXT_PUBLIC_PORTAL_URI}/asset/${selectedAsset.did}`,
+                  href: `${process.env.NEXT_PUBLIC_PORTAL_URI}/asset/${selectedAsset.did}`
                 }}
               />
             ) : (
