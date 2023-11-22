@@ -169,7 +169,7 @@ export default function Home(): ReactElement {
                   text={`There is no active subscription to "${selectedAsset.name}" for this account.`}
                   action={{
                     name: 'Go to Pontus-X',
-                    href: `https://pontus-x.eu/asset/${selectedAsset.did}`,
+                    href: `${process.env.NEXT_PUBLIC_PORTAL_URI}/asset/${selectedAsset.did}`,
                   }}
                 />
               ) : (

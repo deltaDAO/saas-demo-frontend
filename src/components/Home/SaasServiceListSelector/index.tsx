@@ -81,7 +81,7 @@ export default function AssetSelection({
                     </Dotdotdot>
                     <a
                       className={styles.link}
-                      href={`https://pontus-x.eu/asset/${asset.id}`}
+                      href={`${process.env.NEXT_PUBLIC_PORTAL_URI}/asset/${asset.id}`}
                       target="_blank"
                       rel="noreferrer"
                     >
