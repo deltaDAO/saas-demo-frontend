@@ -97,6 +97,25 @@
   opacity: 1;
 }
 
+.selection {
+  padding: 0;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-highlight);
+  border-radius: var(--border-radius);
+  margin-bottom: calc(var(--spacer) / 2);
+  font-size: var(--font-size-small);
+  min-height: 200px;
+  width: 100%;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.selection [class*='loaderWrap'] {
+  margin: calc(var(--spacer) / 3);
+}
+
 .scroll {
   border-top: 1px solid var(--border-color);
   margin-top: calc(var(--spacer) / 4);
@@ -159,7 +178,7 @@
 .did {
   padding: 0;
   /* hack to make DotDotDot clamp work in Safari*/
-  font-size: 0.63rem;
+  font-size: var(--font-size-mini);
   display: block;
   text-align: left;
   color: var(--color-secondary);
