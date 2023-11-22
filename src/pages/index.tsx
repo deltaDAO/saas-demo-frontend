@@ -119,13 +119,13 @@ export default function Home(): ReactElement {
       <div className={styles.grid}>
         <Card completed={!!address}>
           <>
-            <h4>Step1: Connect with Metamask</h4>
+            <h4>Connect your Account</h4>
             <Account />
           </>
         </Card>
         <Card completed={!!subscription}>
           <>
-            <h4>Step2: Verify Subscription State</h4>
+            <h4>Select and Verify</h4>
             <SaasServiceListSelection
               assets={saasAssetsList}
               setSelectedAsset={setSelectedAsset}
@@ -148,7 +148,7 @@ export default function Home(): ReactElement {
         </Card>
         <Card>
           <>
-            <h4>Subscription State:</h4>
+            <h4>Subscription State</h4>
             <div>
               {subscription?.hasAccess ? (
                 <Alert
