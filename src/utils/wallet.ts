@@ -28,5 +28,6 @@ export const connectKitTheme = {
   '--ck-primary-button-border-radius': 'var(--border-radius)',
   '--ck-primary-button-color': 'var(--font-color-heading)',
   '--ck-primary-button-background': 'var(--background-content)',
+  '--ck-primary-button-hover-background': 'var(--background-highlight)',
   '--ck-secondary-button-border-radius': 'var(--border-radius)',
 }

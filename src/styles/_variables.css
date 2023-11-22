@@ -20,7 +20,7 @@
   --brand-grey: #2b2e3b;
   --brand-grey-light: #4c5167;
   --brand-grey-lighter: #d0d2dd;
-  --brand-grey-dimmed: #f5f6fb;
+  --brand-grey-dimmed: #f5f8f9;
 
   --brand-alert-green: #5fb359;
   --brand-alert-red: #d80606;
@@ -42,8 +42,6 @@
     'Segoe UI', Helvetica, Arial, sans-serif;
   --font-family-heading: 'Titillium Web', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Helvetica, Arial, sans-serif;
-  --font-family-monospace: 'Fira Code', 'Fira Mono', Menlo, Monaco, Consolas,
-    'Courier New', monospace;
 
   --font-size-root: 15px;
   --font-size-base: 1rem;
@@ -94,4 +92,17 @@
   --box-template-border-color: var(--border-color);
   --box-template-box-shadow: 0 6px 17px 0 var(--box-shadow-color);
   --box-template-hover-box-shadow: 0 10px 25px 0 var(--box-shadow-color);
+
+  /* Input elements */
+  --input-font-color: var(--font-color-heading);
+  --input-placeholder-font-color: var(--brand-grey);
+  --input-disabled-font-color: var(--font-color-light);
+  --input-border-color: var(--brand-grey-lighter);
+  --input-border-size: var(--border-size);
+  --input-border-radius: var(--border-radius);
+  --input-background: var(--brand-white);
+  --input-background-highlight: var(--background-highlight);
+  --input-selected-background: var(--brand-blue);
+  --input-selected-border-size: var(--border-size);
+  --input-selected-border-color: var(--font-color-heading);
 }

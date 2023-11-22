@@ -1,5 +1,6 @@
 .alert {
-  composes: card from '../Card/index.module.css';
+  composes: card from '../../../pages/index.module.css';
+
   max-width: 40rem;
   margin: auto;
   border-width: 0;
