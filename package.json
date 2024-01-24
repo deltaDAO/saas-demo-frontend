@@ -3,7 +3,8 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next start"
+    "start": "next dev -p 8000",
+    "serve": "serve -s public/"
   },
   "dependencies": {
     "@oceanprotocol/lib": "^3.1.4",
