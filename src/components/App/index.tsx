@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { ToastContainer } from 'react-toastify'
 
 export default function App({
-  children,
+  children
 }: {
   children: ReactElement
 }): ReactElement {
@@ -17,18 +17,37 @@ export default function App({
       <header className={styles.header}></header>
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
-        <a
-          href="https://delta-dao.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Built by{' '}
-          <img
-            src="/deltaDAO_Logo_small_RGB_white.svg"
-            alt="Vercel"
-            className={styles.logo}
-          />
-        </a>
+        <div className={styles.logoLink}>
+          <a
+            href="https://delta-dao.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Built by{' '}
+            <img
+              src="/deltaDAO_Logo_small_RGB_white.svg"
+              alt="Vercel"
+              className={styles.logo}
+            />
+          </a>
+          <div className={styles.links}>
+            <a
+              href="https://pontus-x.eu/imprint"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Imprint
+            </a>
+            {' | '}
+            <a
+              href="https://pontus-x.eu/privacy/en"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Privacy
+            </a>
+          </div>
+        </div>
       </footer>
       <ToastContainer position="bottom-right" newestOnTop />
     </div>
