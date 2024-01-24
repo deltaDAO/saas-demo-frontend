@@ -5,14 +5,13 @@ import { genx } from './chains'
 export const wagmiClient = createConfig(
   getDefaultConfig({
     // Required API Keys
-    infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
     walletConnectProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID,
 
     // Required
     appName: 'Subscription Verifier',
 
     // Optional
-    chains: [genx],
+    chains: [genx]
   })
 )
 
@@ -29,5 +28,5 @@ export const connectKitTheme = {
   '--ck-primary-button-color': 'var(--font-color-heading)',
   '--ck-primary-button-background': 'var(--background-content)',
   '--ck-primary-button-hover-background': 'var(--background-highlight)',
-  '--ck-secondary-button-border-radius': 'var(--border-radius)',
+  '--ck-secondary-button-border-radius': 'var(--border-radius)'
 }
