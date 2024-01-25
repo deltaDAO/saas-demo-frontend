@@ -30,14 +30,13 @@ export default function AssetSelection({
   }
 
   return (
-    <div className={cx({ selection: true, disabled })}>
+    <div className={cx({ selection: true })}>
       <input
         name="search"
         placeholder="Search by name or DID..."
         value={searchValue}
         onChange={handleSearchInput}
         className={`${styles.input} ${styles.search}`}
-        disabled={disabled}
       />
       <div className={styles.scroll}>
         {!assets ? (
@@ -61,12 +60,11 @@ export default function AssetSelection({
                   name="saasServiceList"
                   className={`${styles.input} ${styles.radio}`}
                   {...props}
-                  disabled={disabled}
                   type="radio"
                   onChange={() =>
                     setSelectedAsset({
                       did: asset.id,
-                      name: asset.metadata.name,
+                      name: asset.metadata.name
                     })
                   }
                 />
