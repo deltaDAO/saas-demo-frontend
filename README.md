@@ -2,8 +2,8 @@
 
 ## How to use this reposotory
 
-The [saas-demo-frontend](https://saas.demo.delta-dao.com) is meant to illustrate how any application could utilize the contracting-provider repository to verify the state of contracts negotiated within any Ocean Protocol ecosystem.
-It is demonstrated how to make the relevant API calls to get the information you need and what integrations, e.g. a Web3 wallet connection, you might need to realize the full potential.
+The [saas-demo-frontend](https://saas.demo.delta-dao.com) is meant to illustrate how an application could utilize the contracting-provider API to verify the state of contracts negotiated within any Ocean Protocol ecosystem.
+It is demonstrated how to make the relevant API calls to get the information you need and which integrations, e.g. a Web3 wallet connection, you might need to realize the full potential.
 
 ### Constructing a contracting-provider API call
 
