@@ -73,18 +73,26 @@ export default function Home(): ReactElement {
     }
   }
 
+  /********************************/
+  /* Contracting Provider Request */
+  /********************************/
   const verifySubscription = async (
     address: string,
     did: string
   ): Promise<Subscription> => {
     if (!address || !did) return
 
+    // Update UI
     setIsLoading(true)
     try {
+      // Get a nonce for the user to sign
       const nonce = await getNonce(address)
       if (!nonce) return
 
+      // Ask for the signature via connected wallet
       const signature = await signMessageAsync({ message: nonce })
+
+      // Request subscription / usage status from contracting provider
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_CONTRACTING_PROVIDER_URL}/contracting/validate`,
         {
@@ -103,6 +111,7 @@ export default function Home(): ReactElement {
       console.log(error)
       toast.error(error.message)
     } finally {
+      // Update UI
       setIsLoading(false)
     }
   }
