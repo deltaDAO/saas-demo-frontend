@@ -87,8 +87,8 @@ button.action {
 }
 
 .info {
-  border-color: var(--brand-alert-yellow);
-  color: #9f7e19;
+  border-color: var(--brand-blue);
+  color: var(--brand-blue);
 }
 
 .warning {
