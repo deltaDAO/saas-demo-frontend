@@ -6,6 +6,7 @@ import classNames from 'classnames/bind'
 import Loader from '../../shared/Loader'
 import { Asset } from '@oceanprotocol/lib'
 import { SelectedAsset } from '../../../pages'
+import { NETWORKS_BY_ID } from '../../../utils/chains'
 
 const cx = classNames.bind(styles)
 
@@ -64,7 +65,8 @@ export default function AssetSelection({
                   onChange={() =>
                     setSelectedAsset({
                       did: asset.id,
-                      name: asset.metadata.name
+                      name: asset.metadata.name,
+                      chainId: asset.chainId
                     })
                   }
                 />
@@ -86,6 +88,9 @@ export default function AssetSelection({
                       <External />
                     </a>
                   </h3>
+                  <Dotdotdot clamp={1} tagName="code" className={styles.did}>
+                    {NETWORKS_BY_ID[asset.chainId] || 'Unknown Network ID'}
+                  </Dotdotdot>
                   <Dotdotdot clamp={1} tagName="code" className={styles.did}>
                     {asset.id}
                   </Dotdotdot>

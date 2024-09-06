@@ -1,6 +1,7 @@
 import axios, { AxiosResponse, CancelToken } from 'axios'
 import { Asset } from '@oceanprotocol/lib'
 import { SortDirectionOptions } from '../types/aquarius/SearchQuery'
+import { NETWORKS_BY_ID } from './chains'
 
 /**
  * @param filterField the name of the actual field from the ddo schema e.g. 'id','service.attributes.main.type'
@@ -19,8 +20,8 @@ export function getFilterTerm(
   const useKey = key === 'term' ? (isArray ? 'terms' : 'term') : key
   return {
     [useKey]: {
-      [filterField]: value,
-    },
+      [filterField]: value
+    }
   }
 }
 
@@ -45,17 +46,17 @@ export function generateBaseQuery(
           getFilterTerm('purgatory.state', false),
           {
             exists: {
-              field: 'metadata.additionalInformation.saas.redirectUrl',
-            },
+              field: 'metadata.additionalInformation.saas.redirectUrl'
+            }
           },
           {
             bool: {
-              must_not: [getFilterTerm('price.type', 'pool')],
-            },
-          },
-        ],
-      },
-    },
+              must_not: [getFilterTerm('price.type', 'pool')]
+            }
+          }
+        ]
+      }
+    }
   } as SearchQuery
 
   if (baseQueryParams.aggs !== undefined) {
@@ -66,7 +67,7 @@ export function generateBaseQuery(
     generatedQuery.sort = {
       [baseQueryParams.sortOptions.sortBy]:
         baseQueryParams.sortOptions.sortDirection ||
-        SortDirectionOptions.Descending,
+        SortDirectionOptions.Descending
     }
 
   return generatedQuery
@@ -100,8 +101,8 @@ export async function getSaasAssets(
   try {
     const result = await queryMetadata(
       generateBaseQuery({
-        chainIds: [100],
-        filters: [getFilterTerm('nft.state', [0])],
+        chainIds: Object.keys(NETWORKS_BY_ID).map((id) => parseInt(id)),
+        filters: [getFilterTerm('nft.state', [0])]
       }),
       cancelToken
     )
