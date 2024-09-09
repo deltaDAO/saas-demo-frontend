@@ -17,7 +17,6 @@ import SaasServiceListSelection from '../components/Home/SaasServiceListSelector
 export interface SelectedAsset {
   did: string
   name: string
-  chainId: number
 }
 
 interface Subscription {
@@ -58,8 +57,7 @@ export default function Home(): ReactElement {
     if (!address) {
       setSelectedAsset({
         did: undefined,
-        name: undefined,
-        chainId: undefined
+        name: undefined
       })
       setSubscription(undefined)
     }
@@ -83,10 +81,9 @@ export default function Home(): ReactElement {
   /********************************/
   const verifySubscription = async (
     address: string,
-    did: string,
-    chainId: number
+    did: string
   ): Promise<Subscription> => {
-    if (!address || !did || !chainId) return
+    if (!address || !did) return
 
     // Update UI
     setIsLoading(true)
@@ -104,8 +101,7 @@ export default function Home(): ReactElement {
         {
           address,
           signature,
-          did,
-          chainId
+          did
         }
       )
 
@@ -167,8 +163,7 @@ export default function Home(): ReactElement {
               const asset = { ...selectedAsset }
               const subscriptionDetails = await verifySubscription(
                 address,
-                selectedAsset.did,
-                selectedAsset.chainId
+                selectedAsset.did
               )
               setSubscription({
                 ...subscriptionDetails,

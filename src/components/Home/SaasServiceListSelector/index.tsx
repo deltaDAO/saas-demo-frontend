@@ -65,8 +65,7 @@ export default function AssetSelection({
                   onChange={() =>
                     setSelectedAsset({
                       did: asset.id,
-                      name: asset.metadata.name,
-                      chainId: asset.chainId
+                      name: asset.metadata.name
                     })
                   }
                 />
