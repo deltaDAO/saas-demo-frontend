@@ -1,6 +1,6 @@
 import { createConfig } from 'wagmi'
 import { getDefaultConfig } from 'connectkit'
-import { genx } from './chains'
+import { PONTUS_X_TEST } from './chains'
 
 export const wagmiClient = createConfig(
   getDefaultConfig({
@@ -11,7 +11,7 @@ export const wagmiClient = createConfig(
     appName: 'Subscription Verifier',
 
     // Optional
-    chains: [genx]
+    chains: [PONTUS_X_TEST]
   })
 )
 
