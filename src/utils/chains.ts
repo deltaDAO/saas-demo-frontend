@@ -22,7 +22,6 @@ export const PONTUS_X_TEST = {
 } as Chain
 
 export const NETWORKS_BY_ID = {
-  100: 'GEN-X Testnet',
   32456: 'Pontus-X Devnet',
   32457: 'Pontus-X Testnet'
 }
