@@ -1,22 +1,22 @@
 import { Chain } from 'wagmi'
 
-export const genx = {
-  id: 100,
-  name: 'GEN-X Testnet',
-  network: 'genx',
+export const PONTUS_X_TEST = {
+  id: 32457,
+  name: 'Pontus-X Testnet',
+  network: 'pontusx-testnet',
   nativeCurrency: {
     decimals: 18,
-    name: 'GX',
-    symbol: 'GX'
+    name: 'EUROe',
+    symbol: 'EUROe'
   },
   rpcUrls: {
-    public: { http: ['https://rpc.genx.minimal-gaia-x.eu'] },
-    default: { http: ['https://rpc.genx.minimal-gaia-x.eu'] }
+    public: { http: ['https://rpc.test.pontus-x.eu'] },
+    default: { http: ['https://rpc.test.pontus-x.eu'] }
   },
   blockExplorers: {
     default: {
-      name: 'GEN-X Testnet Explorer',
-      url: 'https://explorer.pontus-x.eu'
+      name: 'Pontus-X Testnet Explorer',
+      url: 'https://explorer.pontus-x.eu/pontusx/test'
     }
   }
 } as Chain
